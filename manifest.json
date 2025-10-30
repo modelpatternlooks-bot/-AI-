@@ -1,0 +1,28 @@
+
+{
+  "short_name": "AI Assistant",
+  "name": "ผู้ช่วย AI อัจฉริยะ",
+  "description": "ผู้ช่วย AI ส่วนตัวของคุณ สำหรับการสนทนา, สร้างสรรค์ข้อความ และการกรอกเอกสารอัตโนมัติ",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icons/maskable-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#3b82f6",
+  "background_color": "#020617"
+}

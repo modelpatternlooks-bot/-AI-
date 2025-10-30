@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ผู้ช่วย AI อัจฉริยะ</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3b82f6" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd", "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8", "800": "#1e40af", "900": "#1e3a8a", "950": "#172554"
+            }
+          },
+          backdropBlur: {
+             '3xl': '32px',
+          },
+          keyframes: {
+            'subtle-glow': {
+              '0%, 100%': { 'box-shadow': '0 0 25px 5px rgba(59, 130, 246, 0.15)' },
+              '50%': { 'box-shadow': '0 0 40px 10px rgba(168, 85, 247, 0.15)' },
+            },
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'gradient-pan': {
+              '0%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+              '100%': { 'background-position': '0% 50%' },
+            },
+            'pulse-bg': {
+              '0%, 100%': { 'background-color': 'rgba(209, 213, 219, 0.5)' },
+              '50%': { 'background-color': 'rgba(229, 231, 235, 0.5)' },
+            },
+            'dark-pulse-bg': {
+              '0%, 100%': { 'background-color': 'rgba(55, 65, 81, 0.5)' },
+              '50%': { 'background-color': 'rgba(75, 85, 99, 0.5)' },
+            },
+          },
+          animation: {
+            'subtle-glow': 'subtle-glow 8s ease-in-out infinite',
+            'fade-in-up': 'fade-in-up 0.7s ease-in-out forwards',
+            'gradient-pan': 'gradient-pan 20s ease infinite',
+            'pulse-bg': 'pulse-bg 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'dark-pulse-bg': 'dark-pulse-bg 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .dark select option {
+    background-color: #1e293b; /* slate-800 */
+  }
+  .mode-switcher-container {
+      position: relative;
+      display: inline-flex;
+  }
+  .mode-switcher-indicator {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      z-index: 0;
+      border-radius: 9999px;
+      background-color: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .dark .mode-switcher-indicator {
+      background-color: #1f2937; /* gray-800 */
+  }
+  .mode-switcher-container button {
+      position: relative;
+      z-index: 1;
+  }
+  .skeleton-line {
+    animation: pulse-bg 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .dark .skeleton-line {
+    animation: dark-pulse-bg 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
+</head>
+<body class="bg-slate-200/50 dark:bg-slate-900/50">
+  <!-- Animated Gradient Background -->
+  <div class="fixed inset-0 -z-30 h-full w-full bg-[linear-gradient(-45deg,#0284c7,#3b82f6,#a855f7,#d946ef)] bg-[size:400%_400%] animate-gradient-pan"></div>
+  
+  <div class="fixed inset-0 -z-10 h-full w-full bg-white dark:bg-slate-950 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+  <div class="fixed inset-0 -z-20 h-full w-full bg-transparent [mask-image:radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(200,200,200,0.3),rgba(255,255,255,0))]"></div>
+
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
